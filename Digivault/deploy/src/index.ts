@@ -125,7 +125,7 @@ app.get('/api/documents', authMiddleware, (c: any) => {
     const queryResult = db.query(`SELECT * FROM user_documents WHERE user_id = ?`).all(userId);
 
     const result = queryResult.map((r: any) => {
-        return { id: r.id, title: r.title, url: hostName + 'api/' + r.file_path }
+        return { id: r.id, title: r.title, url: hostName  + r.file_path }
     })
 
     return c.json(result);
